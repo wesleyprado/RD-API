@@ -1,5 +1,6 @@
 Given("que tenha um cep {string}") do  |type|
-  @cep = DATA['DATA']["#{type}CEP"]['CEP1']
+  @type = type
+  @cep = DATA['DATA']["#{@type}CEP"]['CEP1']
 end
 
 When("requisito o serviço") do
@@ -15,6 +16,8 @@ end
 
 Then("eu valido os dados de contrato do serviço") do
   expect(@response).to match_json_schema('buscaCEP')
+  expect(@response['logradouro']).to eq(DATA['DATA']["#{@type}CEP"]['logradouro'])
+  expect(@response['uf']).to eq(DATA['DATA']["#{@type}CEP"]['uf'])
 end
 
 Then("uma mensagem de erro") do

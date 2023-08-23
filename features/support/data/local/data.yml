@@ -1,8 +1,7 @@
 DATA:
   ValidoCEP:
     CEP1: "38413189"
-    CEP2: "38408026"
-
+      logradouro: "Rua do Cabeleireiro"
+      uf: "MG"
   InvalidoCEP:
     CEP1: "01234567"
-    CEP2: "98732197"
