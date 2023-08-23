@@ -1,0 +1,16 @@
+  
+#encoding: UTF-8
+---
+    default: -p progress -p json -p qa
+    
+    progress: --format progress
+    
+    pretty: --format pretty
+    html:  --format html --out=reports/report.html
+    json:  --format json --out=reports/report.json
+    
+    local: ENVIRONMENT=local --tags "not @local_ignore"
+
+    qa: ENVIRONMENT=qa  -exclude      --tags "not @qa_ignore"
+    hmg: ENVIRONMENT=hmg        --tags "not @hmg_ignore"
+    prod: ENVIRONMENT=prod              --tags "not @prod_ignore"

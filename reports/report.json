@@ -1,0 +1,221 @@
+[
+  {
+    "id": "buscar-um-cep",
+    "uri": "features/specification/buscaCEP.feature",
+    "keyword": "Funcionalidade",
+    "name": "Buscar um CEP",
+    "description": "",
+    "line": 5,
+    "tags": [
+      {
+        "name": "@CEP",
+        "line": 4
+      },
+      {
+        "name": "@regression",
+        "line": 4
+      }
+    ],
+    "elements": [
+      {
+        "id": "buscar-um-cep;buscar-um-cep",
+        "keyword": "Cenario",
+        "name": "Buscar um CEP",
+        "description": "",
+        "line": 8,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que tenha um cep \"Valido\"",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25700
+            }
+          },
+          {
+            "keyword": "Quando ",
+            "name": "requisito o serviço",
+            "line": 10,
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 457701100
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o sistema retorna o status 200",
+            "line": 11,
+            "output": [
+              "\n =============== URL: ================ \n https://viacep.com.br/ws/38413189/json\n",
+              "\n =============== Headers: ================ \n {\"server\"=>[\"nginx/1.22.0\"], \"date\"=>[\"Wed, 23 Aug 2023 17:23:25 GMT\"], \"content-type\"=>[\"application/json; charset=utf-8\"], \"transfer-encoding\"=>[\"chunked\"], \"connection\"=>[\"close\"], \"expires\"=>[\"Wed, 23 Aug 2023 18:23:25 GMT\"], \"cache-control\"=>[\"max-age=3600\", \"public\"], \"pragma\"=>[\"public\"], \"access-control-allow-origin\"=>[\"*\"], \"access-control-allow-methods\"=>[\"GET\"], \"access-control-allow-headers\"=>[\"Content-Type, X-Request-With, X-Requested-By\"], \"access-control-allow-credentials\"=>[\"true\"], \"access-control-max-age\"=>[\"86400\"]}",
+              "\n =============== Payload de resposta: =============== \n {\n  \"cep\": \"38413-189\",\n  \"logradouro\": \"Rua do Cabeleireiro\",\n  \"complemento\": \"\",\n  \"bairro\": \"Planalto\",\n  \"localidade\": \"Uberlândia\",\n  \"uf\": \"MG\",\n  \"ibge\": \"3170206\",\n  \"gia\": \"\",\n  \"ddd\": \"34\",\n  \"siafi\": \"5403\"\n}"
+            ],
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 150687700
+            }
+          },
+          {
+            "keyword": "E ",
+            "name": "eu valido os dados de contrato do serviço",
+            "line": 12,
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2103800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CEP",
+            "line": 4
+          },
+          {
+            "name": "@regression",
+            "line": 4
+          },
+          {
+            "name": "@happy-flow",
+            "line": 7
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/hooks.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/hooks.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9200
+            }
+          }
+        ]
+      },
+      {
+        "id": "buscar-um-cep;buscar-um-cep-invalido",
+        "keyword": "Cenario",
+        "name": "Buscar um CEP Invalido",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que tenha um cep \"Invalido\"",
+            "line": 16,
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18700
+            }
+          },
+          {
+            "keyword": "Quando ",
+            "name": "requisito o serviço",
+            "line": 17,
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 445935100
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o sistema retorna o status 200",
+            "line": 18,
+            "output": [
+              "\n =============== URL: ================ \n https://viacep.com.br/ws/01234567/json\n",
+              "\n =============== Headers: ================ \n {\"server\"=>[\"nginx/1.22.0\"], \"date\"=>[\"Wed, 23 Aug 2023 17:23:26 GMT\"], \"content-type\"=>[\"application/json; charset=utf-8\"], \"transfer-encoding\"=>[\"chunked\"], \"connection\"=>[\"close\"], \"access-control-allow-origin\"=>[\"*\"], \"access-control-allow-methods\"=>[\"GET\"], \"access-control-allow-headers\"=>[\"Content-Type, X-Request-With, X-Requested-By\"], \"access-control-allow-credentials\"=>[\"true\"], \"access-control-max-age\"=>[\"86400\"], \"strict-transport-security\"=>[\"max-age=63072000\"]}",
+              "\n =============== Payload de resposta: =============== \n {\n  \"erro\": true\n}"
+            ],
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83980600
+            }
+          },
+          {
+            "keyword": "E ",
+            "name": "uma mensagem de erro",
+            "line": 19,
+            "output": [
+              "\n =============== URL: ================ \n https://viacep.com.br/ws/01234567/json\n",
+              "\n =============== Headers: ================ \n {\"server\"=>[\"nginx/1.22.0\"], \"date\"=>[\"Wed, 23 Aug 2023 17:23:26 GMT\"], \"content-type\"=>[\"application/json; charset=utf-8\"], \"transfer-encoding\"=>[\"chunked\"], \"connection\"=>[\"close\"], \"access-control-allow-origin\"=>[\"*\"], \"access-control-allow-methods\"=>[\"GET\"], \"access-control-allow-headers\"=>[\"Content-Type, X-Request-With, X-Requested-By\"], \"access-control-allow-credentials\"=>[\"true\"], \"access-control-max-age\"=>[\"86400\"], \"strict-transport-security\"=>[\"max-age=63072000\"]}",
+              "\n =============== Payload de resposta: =============== \n {\n  \"erro\": true\n}"
+            ],
+            "match": {
+              "location": "features/step_definitions/buscaCEP_steps.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106182200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CEP",
+            "line": 4
+          },
+          {
+            "name": "@regression",
+            "line": 4
+          },
+          {
+            "name": "@bad-flow",
+            "line": 14
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/hooks/hooks.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10600
+            }
+          },
+          {
+            "match": {
+              "location": "features/hooks/hooks.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
